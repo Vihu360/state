@@ -53,6 +53,14 @@ export const featuredCards = [
     image: images.japan,
     category: "flat",
   },
+  {
+    title: "Featured 3",
+    location: "Location 3",
+    price: "$300",
+    rating: 2,
+    image: images.newYork,
+    category: "villa",
+  }
 ];
 
 export const categories = [

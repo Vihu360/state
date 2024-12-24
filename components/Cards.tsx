@@ -8,13 +8,19 @@ interface Props {
   onPress?: () => void;
 }
 
-export const FeaturedCard = ({ item, onPress }: Props) => {
+const onPress = () => {
+  console.log("pressed");
+};
+
+
+export const Featuredcard = ({ item }: { item: { title: string; location: string; price: string; rating: number; image: any; category: string; }, 
+  onPress?: () => void }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      className="flex flex-col items-start w-60 h-80 relative"
+      className="flex flex-col items-start w-48 h-64 relative mr-3"
     >
-      <Image source={{ uri: item.image }} className="size-full rounded-2xl" />
+      <Image source={item.image} className="size-full rounded-2xl" />
 
       <Image
         source={images.cardGradient}
@@ -30,27 +36,26 @@ export const FeaturedCard = ({ item, onPress }: Props) => {
 
       <View className="flex flex-col items-start absolute bottom-5 inset-x-5">
         <Text
-          className="text-xl font-rubik-extrabold text-white"
+          className="text-base font-rubikBold text-white"
           numberOfLines={1}
         >
-          {item.name}
-        </Text>
-        <Text className="text-base font-rubik text-white" numberOfLines={1}>
-          {item.address}
+          {item.title}
         </Text>
 
         <View className="flex flex-row items-center justify-between w-full">
-          <Text className="text-xl font-rubik-extrabold text-white">
-            ${item.price}
+        <Text className="text-sm font-rubik text-white text-center" numberOfLines={1}>
+          {item.location}
+        </Text>
+          <Text className="text-xs font-rubik text-white">
+            {item.price}
           </Text>
-          <Image source={icons.heart} className="size-5" />
         </View>
       </View>
     </TouchableOpacity>
   );
 };
 
-export const Card = ({ item, onPress }: Props) => {
+export const Cards = ({ item, onPress }: Props) => {
   return (
     <TouchableOpacity
       className="flex-1 w-full mt-4 px-3 py-4 rounded-lg bg-white shadow-lg shadow-black-100/70 relative"
